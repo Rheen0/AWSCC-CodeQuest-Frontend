@@ -10,6 +10,9 @@ body {
     height: 97vh;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     text-shadow: 2px 2px 1px gray;
+    /* Added transitions */
+    transition: 350ms;
+    transition-timing-function: ease-out;
 }
 
 .choice-btn {
@@ -43,7 +46,7 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
     color: white;
-    background-color: black; 
+    background-color: black;
     height: auto;
     padding: 15px 25px;
     margin-top: 10px;
