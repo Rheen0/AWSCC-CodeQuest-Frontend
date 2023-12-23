@@ -46,19 +46,19 @@ rockBtn.addEventListener("click", function () {
             gameStatusDisplay.innerHTML = "YOU WIN!";
             document.body.style.backgroundColor = "#6dd66d";
 
-            player1ScoreDisplay.innerHTML = "1";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else if (opponentHand.getAttribute("src") === "assets/hand-paper-solid.svg") {
             gameStatusDisplay.innerHTML = "YOU LOSE!";
             document.body.style.backgroundColor = "#ff5e5e";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "1";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else {
             gameStatusDisplay.innerHTML = "DRAW";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
 
         player2ChoiceDisplay.appendChild(opponentHand);
@@ -86,19 +86,19 @@ paperBtn.addEventListener("click", function () {
         if (opponentHand.getAttribute("src") === "assets/hand-rock-solid.svg") {
             gameStatusDisplay.innerHTML = "YOU WIN!";
             document.body.style.backgroundColor = "#6dd66d";
-            player1ScoreDisplay.innerHTML = "1";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else if (opponentHand.getAttribute("src") === "assets/hand-scissors-solid.svg") {
             gameStatusDisplay.innerHTML = "YOU LOSE!";
             document.body.style.backgroundColor = "#ff5e5e";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "1";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else {
             gameStatusDisplay.innerHTML = "DRAW";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
 
         player2ChoiceDisplay.appendChild(opponentHand);
@@ -127,19 +127,19 @@ scissorsBtn.addEventListener("click", function () {
             gameStatusDisplay.innerHTML = "YOU WIN!";
             document.body.style.backgroundColor = "#6dd66d";
 
-            player1ScoreDisplay.innerHTML = "1";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else if (opponentHand.getAttribute("src") === "assets/hand-rock-solid.svg") {
             gameStatusDisplay.innerHTML = "YOU LOSE!";
             document.body.style.backgroundColor = "#ff5e5e";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "1";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
         else {
             gameStatusDisplay.innerHTML = "DRAW";
-            player1ScoreDisplay.innerHTML = "0";
-            player2ScoreDisplay.innerHTML = "0";
+            player1ScoreDisplay.innerHTML = "";
+            player2ScoreDisplay.innerHTML = "";
         }
 
         player2ChoiceDisplay.appendChild(opponentHand);
