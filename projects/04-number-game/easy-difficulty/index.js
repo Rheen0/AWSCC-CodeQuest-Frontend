@@ -1,16 +1,7 @@
-const container = document.getElementById("inner-container");
-setTimeout(() => {
-    container.classList.add('active');
-}, 500);
 
-const music = document.getElementById("music");
-const mute = document.getElementById("mute-btn");
-mute.addEventListener("click", function () {
-    music.setAttribute("muted", "");
-});
 //
 
-const guessNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const guessNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let life = 5;
 
 
@@ -25,27 +16,28 @@ const answer = document.getElementById("answer");
 function buildMechaAlf() {
     switch (life) {
         case 4:
-            mechaAlf.setAttribute("src", "assets/mecha_alf/mecha_alf_legs.webp");
+            mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_legs.webp");
             break;
         case 3:
-            mechaAlf.setAttribute("src", "assets/mecha_alf/mecha_alf_body.webp");
+            mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_body.webp");
             break;
         case 2:
-            mechaAlf.setAttribute("src", "assets/mecha_alf/mecha_alf_arms.webp");
+            mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_arms.webp");
             break;
         case 1:
-            mechaAlf.setAttribute("src", "assets/mecha_alf/mecha_alf_head.webp");
+            mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_head.webp");
             break;
         case 0:
-            mechaAlf.setAttribute("src", "assets/mecha_alf/mecha_alf_complete.webp");
+            mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_complete.webp");
             break;
     }
 }
 
+const backBtn = document.createElement("a");
+backBtn.innerHTML = "Back to main menu";
+backBtn.setAttribute("href", "../index.html");
 
 const userInput = document.getElementsByClassName("number");
-
-
 for (let i = 0; i < userInput.length; i++) {
     function highlightAnswer() {
         userInput[i].style.backgroundColor = "#D0A2F7";
@@ -56,7 +48,7 @@ for (let i = 0; i < userInput.length; i++) {
 
         if (userGuess == randomNumber) {
             message.innerHTML = "Correct!";
-
+            document.getElementById("feedback").appendChild(backBtn);
         }
         else if (userGuess > randomNumber && life > 0) {
             life--;
@@ -71,6 +63,7 @@ for (let i = 0; i < userInput.length; i++) {
         else {
             message.innerHTML = "Game Over!";
             answer.innerHTML = "The correct answer is " + randomNumber;
+            document.getElementById("feedback").appendChild(backBtn);
         }
     }
 

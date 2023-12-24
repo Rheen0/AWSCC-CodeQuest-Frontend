@@ -7,47 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Number Guessing Game</title>
 </head>
 
 <body>
     <video class="background-video" src="assets/background.webm" autoplay loop muted></video>
     <div class="container">
-        <h1>Number Guessing Game</h1>
         <div id="inner-container" class="inner-container">
-            <div id="feedback" class="feedback">
-                <h2 id="feedback-message">CLICK A NUMBER</h2>
-                <img id="mecha-alf" src="assets/mecha_alf/default.webp">
-                <h2 id="answer"></h2>
+            <h1>Welcome to AWS CodeQuest Frontend's Number Guessing Game Project</h1>
+            <p>Prevent the evil mecha alf from gathering his body parts by choosing the correct number!</p>
+            <div class="difficulty">
+                <h1 class="choices"><a href="easy-difficulty/index.html">Easy</a></h1>
+                <h1 class="choices"><a href="normal-difficulty/index.html">Normal</a></h1>
+                <h1 class="choices"><a href="hard-difficulty/index.html">Hard</a></h1>
             </div>
-            <!-- <input type="number" id="user-input"> -->
-            <div class="grid-container">
-                <div id="num1" class="number">1</div>
-                <div id="num2" class="number">2</div>
-                <div id="num3" class="number">3</div>
-                <div id="num4" class="number">4</div>
-                <div id="num5" class="number">5</div>
-                <div id="num6" class="number">6</div>
-                <div id="num7" class="number">7</div>
-                <div id="num8" class="number">8</div>
-                <div id="num9" class="number">9</div>
-                <div id="num10" class="number">10</div>
-                <div id="num11" class="number">11</div>
-                <div id="num12" class="number">12</div>
-                <div id="num13" class="number">13</div>
-                <div id="num14" class="number">14</div>
-                <div id="num15" class="number">15</div>
-                <div id="num16" class="number">16</div>
-                <div id="num17" class="number">17</div>
-                <div id="num18" class="number">18</div>
-                <div id="num19" class="number">19</div>
-                <div id="num20" class="number">20</div>
-            </div>
-            <!-- <button id="submitInput">Submit</button> -->
         </div>
 
     </div>
+
+    <div class="footer">
+        <p>Developed by Rhandie Sales</p>
+    </div>
+
     <script src="index.js">
     </script>
 </body>
