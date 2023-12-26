@@ -1,1 +1,230 @@
-/* GO WILD AND BE CREATIVE! */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace
+}
+
+
+body {
+    background-color: #47CCFF;
+    overflow-x: hidden;
+}
+
+/* Header */
+
+header {
+    background-color: #FFAD84;
+    padding: 10px;
+}
+
+nav {
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    list-style: none;
+    padding: 0 25px;
+    border-left: 1.25px solid #FFF78A;
+}
+
+nav li:last-child {
+    border-right: 1.25px solid #FFF78A;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFF78A;
+}
+
+/* Main Content */
+main {
+    padding: 50px 0 0 0;
+    background-color: #ffeebc;
+}
+
+/* Hero */
+
+.hero {
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+
+.hero .header {
+    width: 100%;
+    height: 100%;
+}
+
+.header .icon {
+    position: sticky;
+    top: 100px;
+    border-radius: 25px;
+    height: 250px;
+    margin: 5% 11% 0;
+    width: 250px;
+    z-index: 0;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 500px;
+    margin: 0 11%;
+
+}
+
+.links li {
+    list-style: none;
+}
+
+
+.header h1 {
+    position: sticky;
+    top: 350px;
+    margin: 0 11%;
+    font-size: 5rem;
+    z-index: 3;
+}
+
+.header p {
+    position: sticky;
+    font-size: 1.25rem;
+    top: 450px;
+    margin: 0 11%;
+    z-index: 2;
+}
+
+/* Main Content */
+
+.main-content {
+    width: 100%;
+}
+
+/* Parallax */
+
+.waves {
+    display: grid;
+    width: 100%;
+    grid-template-areas: stack;
+}
+
+.waves>* {
+    grid-area: stack;
+}
+
+.parallax>img {
+    width: 100%;
+}
+
+.wave-1 {
+    z-index: 5;
+}
+
+.wave-2 {
+    z-index: 4;
+}
+
+.wave-3 {
+    z-index: 3;
+}
+
+.wave-4 {
+    z-index: 2;
+}
+
+.wave-5 {
+    z-index: 1;
+}
+
+/* Social Links */
+/*dpa nagagamit*/
+.links {
+    position: sticky;
+}
+
+.twitter {
+    z-index: 6;
+}
+
+/* */
+
+.about-me {
+    height: 100vh;
+    background: url(assets/background.png) no-repeat, rgb(71, 204, 255);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me .text {
+    font-size: 2em;
+    margin: 0 11%;
+    text-align: justify;
+}
+
+/* */
+
+footer {
+    background-color: rgb(71, 204, 255);
+    height: 10vh;
+}
+
+footer h2 {
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+/* responsive design */
+
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav h2 {
+        margin: 2% 0;
+    }
+
+    /* */
+
+    .header .icon {
+        top: 100px;
+        height: 150px;
+        width: 150px;
+    }
+
+    .links {
+        top: 360px;
+        flex-wrap: wrap;
+    }
+
+    .links li {
+        list-style: none;
+    }
+
+
+    .header h1 {
+        top: 250px;
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+        top: 290px;
+    }
+
+}
