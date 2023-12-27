@@ -34,40 +34,60 @@ function buildMechaAlf() {
 }
 
 const backBtn = document.createElement("a");
+const retryBtn = document.createElement("a");
 backBtn.innerHTML = "Back to main menu";
+retryBtn.innerHTML = "Retry";
 backBtn.setAttribute("href", "../index.html");
+retryBtn.setAttribute("href", "index.html");
 
+let ongoingGame = true;
 
 const userInput = document.getElementsByClassName("number");
 for (let i = 0; i < userInput.length; i++) {
     function highlightAnswer() {
-        userInput[i].style.backgroundColor = "#D0A2F7";
+        if (ongoingGame === true) {
+            userInput[i].style.backgroundColor = "#D0A2F7";
+        }
     }
 
     function checkAnswer() {
+
         const userGuess = userInput[i].textContent;
 
-        if (userGuess == randomNumber) {
-            message.innerHTML = "Correct!";
-            document.getElementById("feedback").appendChild(backBtn);
-
+        if (userGuess == randomNumber && life > 0) {
+            if (ongoingGame === true) {
+                message.innerHTML = "Correct!";
+                document.getElementById("feedback").appendChild(backBtn);
+                document.getElementById("feedback").appendChild(retryBtn);
+                ongoingGame = false;
+            }
         }
         else if (userGuess > randomNumber && life > 0) {
-            life--;
-            buildMechaAlf();
-            message.innerHTML = "Too high";
+            if (ongoingGame === true) {
+                life--;
+                buildMechaAlf();
+                message.innerHTML = "Too high";
+            }
         }
         else if (userGuess < randomNumber && life > 0) {
-            life--;
-            buildMechaAlf();
-            message.innerHTML = "Too low";
+            if (ongoingGame === true) {
+                life--;
+                buildMechaAlf();
+                message.innerHTML = "Too low";
+            }
         }
         else {
-            message.innerHTML = "Game Over!";
-            answer.innerHTML = "The correct answer is " + randomNumber;
-            document.getElementById("feedback").appendChild(backBtn);
+            if (ongoingGame === true) {
+                message.innerHTML = "Game Over!";
+                answer.innerHTML = "The correct answer is " + randomNumber;
+                document.getElementById("feedback").appendChild(backBtn);
+                document.getElementById("feedback").appendChild(retryBtn);
+                ongoingGame = false;
+            }
+
         }
     }
+
 
     userInput[i].addEventListener('click', checkAnswer);
     userInput[i].addEventListener('click', highlightAnswer);

@@ -11,6 +11,19 @@ console.log(randomNumber);
 const message = document.getElementById("feedback-message");
 const answer = document.getElementById("answer");
 
+const audio = document.getElementById("audio");
+const mute = document.getElementById("mute");
+const bgm = document.getElementById("bgm");
+
+function playAudio() {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
+
+mute.addEventListener("click", playAudio);
 
 function buildMechaAlf() {
     switch (life) {
@@ -22,9 +35,11 @@ function buildMechaAlf() {
             break;
         case 2:
             mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_arms.webp");
+
             break;
         case 1:
             mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_head.webp");
+            bgm.setAttribute("src", "../assets/lowhpbgm.mp3");
             break;
         case 0:
             mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_complete.webp");
@@ -33,44 +48,70 @@ function buildMechaAlf() {
 }
 
 const backBtn = document.createElement("a");
+const retryBtn = document.createElement("a");
 backBtn.innerHTML = "Back to main menu";
+retryBtn.innerHTML = "Retry";
 backBtn.setAttribute("href", "../index.html");
+retryBtn.setAttribute("href", "index.html");
+
+let ongoingGame = true;
 
 const userInput = document.getElementsByClassName("number");
 for (let i = 0; i < userInput.length; i++) {
     function highlightAnswer() {
-        userInput[i].style.backgroundColor = "#D0A2F7";
+        if (ongoingGame === true) {
+            userInput[i].style.backgroundColor = "#D0A2F7";
+        }
     }
 
     function checkAnswer() {
+
         const userGuess = userInput[i].textContent;
 
-        if (userGuess == randomNumber) {
-            message.innerHTML = "Correct!";
-            document.getElementById("feedback").appendChild(backBtn);
+        if (userGuess == randomNumber && life > 0) {
+            if (ongoingGame === true) {
+                message.innerHTML = "Correct!";
+                document.getElementById("feedback").appendChild(backBtn);
+                document.getElementById("feedback").appendChild(retryBtn);
+                ongoingGame = false;
+            }
         }
         else if (userGuess > randomNumber && life > 0) {
-            life--;
-            buildMechaAlf();
-            message.innerHTML = "Too high";
+            if (ongoingGame === true) {
+                life--;
+                buildMechaAlf();
+                message.innerHTML = "Too high";
+            }
         }
         else if (userGuess < randomNumber && life > 0) {
-            life--;
-            buildMechaAlf();
-            message.innerHTML = "Too low";
+            if (ongoingGame === true) {
+                life--;
+                buildMechaAlf();
+                message.innerHTML = "Too low";
+            }
         }
         else {
-            message.innerHTML = "Game Over!";
-            answer.innerHTML = "The correct answer is " + randomNumber;
-            document.getElementById("feedback").appendChild(backBtn);
+            if (ongoingGame === true) {
+                message.innerHTML = "Game Over!";
+                answer.innerHTML = "The correct answer is " + randomNumber;
+                document.getElementById("feedback").appendChild(backBtn);
+                document.getElementById("feedback").appendChild(retryBtn);
+                ongoingGame = false;
+            }
+
         }
     }
+
 
     userInput[i].addEventListener('click', checkAnswer);
     userInput[i].addEventListener('click', highlightAnswer);
 
 
 }
+
+
+
+
 
 
 

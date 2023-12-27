@@ -20,7 +20,18 @@ const randomNumber = Math.floor(Math.random() * guessNumber.length);
 console.log(randomNumber);
 const message = document.getElementById("feedback-message");
 const answer = document.getElementById("answer");
+const audio = document.getElementById("audio");
+const mute = document.getElementById("mute");
 
+function playAudio() {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
+
+mute.addEventListener("click", playAudio);
 
 function buildMechaAlf() {
     switch (life) {
