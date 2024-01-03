@@ -7,6 +7,7 @@ let life = 5;
 
 const mechaAlf = document.getElementById("mecha-alf");
 
+const container = document.querySelector(".container");
 const randomNumber = Math.floor(Math.random() * guessNumber.length);
 console.log(randomNumber);
 const message = document.getElementById("feedback-message");
@@ -29,6 +30,7 @@ function buildMechaAlf() {
             break;
         case 0:
             mechaAlf.setAttribute("src", "../assets/mecha_alf/mecha_alf_complete.webp");
+            document.querySelector('.container').classList.add('lowhp');
             break;
     }
 }
@@ -78,8 +80,8 @@ for (let i = 0; i < userInput.length; i++) {
         }
         else {
             if (ongoingGame === true) {
-                message.innerHTML = "Game Over!";
-                answer.innerHTML = "The correct answer is " + randomNumber;
+                message.innerHTML = "The correct answer is " + randomNumber;
+
                 document.getElementById("feedback").appendChild(backBtn);
                 document.getElementById("feedback").appendChild(retryBtn);
                 ongoingGame = false;

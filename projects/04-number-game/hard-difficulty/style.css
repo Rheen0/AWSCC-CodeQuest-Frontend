@@ -5,11 +5,30 @@
     font-family: 'Silkscreen', Courier, monospace;
     overflow-y: hidden;
     overflow-x: hidden;
+    user-select: none;
 
 }
 
 body {
     background: #E5D4FF;
+}
+
+
+.container::before {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(117, 18, 18, 0.346);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.container.lowhp::before {
+    opacity: 1;
 }
 
 .container {
@@ -53,13 +72,22 @@ h2 {
     }
 
     50% {
-        transform: translateY(-1%);
+        transform: translateY(-0.5%);
     }
 }
 
+.difficulty {
+    color: white;
+    padding: 5px;
+    text-align: center;
+    background-color: #9355df89;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    ;
+}
 
 .inner-container {
-    /* margin-top: 5%; */
+    border: 2px solid rgba(0, 0, 0, 0.8);
     padding: 25PX;
     height: 85vh;
     overflow: hidden;
@@ -72,6 +100,8 @@ h2 {
 
 
 .feedback {
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    position: relative;
     display: flex;
     border-radius: 25px;
     align-items: center;
@@ -81,6 +111,29 @@ h2 {
     width: 100%;
     background: url(../assets/background-feedback.webp) no-repeat;
     background-size: cover;
+}
+
+
+#feedback-message,
+#answer {
+    z-index: 1;
+}
+
+
+.feedback::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(28, 17, 26, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: auto;
+}
+
+
+.feedback a {
+    z-index: 1;
 }
 
 
@@ -109,6 +162,7 @@ img {
 }
 
 .number {
+    border: 2px solid rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
